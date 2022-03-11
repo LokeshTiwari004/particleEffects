@@ -1,0 +1,27 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html
+{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+}
+
+#canvas1
+{
+
+    width: var(--canvasWidth);
+    height: var(--canvasHeight);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+}
