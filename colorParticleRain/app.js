@@ -46,7 +46,7 @@ myImage.addEventListener('load', function (){
         constructor(){
             this.x = Math.random() * dimension;
             this.y = 0;
-            this.velocity = Math.random() * 0.5 + 2;
+            this.velocity = Math.random() * 2 + 0.01;
             this.size = Math.random() * 0.5 + 0.5;
             this.underlyingPixel = mappedImage[Math.floor(this.y)][Math.floor(this.x)];
             this.speed =  (1 - (this.underlyingPixel.brightness/255)) * (4);
