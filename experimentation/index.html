@@ -12,9 +12,9 @@
         }
     </style>
     <script>
-        const y_factor = 9;
-        const x_factor = 16;
-        const dimension = Math.floor(visualViewport.height / y_factor);
+        const y_factor = 3;
+        const x_factor = 4;
+        let dimension = Math.floor(visualViewport.height / y_factor);
         document.documentElement.style.setProperty('--canvasHeight', `${dimension * y_factor}px`);
         document.documentElement.style.setProperty('--canvasWidth', `${dimension * x_factor}px`);
     </script>
@@ -23,6 +23,31 @@
 <body>
     <canvas id="canvas1"></canvas>
 
-    <script src="exp1.js"></script>
+    <!-- random movement of particle forming flower -->
+    <!-- <script src="exp1.js"></script> -->
+    
+    <!-- Particle appear on left and move at random angle from 0 deg to 180 deg -->
+    <!-- <script src="exp2.js"></script> -->
+    
+    <!-- Particle appear from top or left and move in a fixed direction -->
+    <!-- <script src="exp3.js"></script> -->
+
+    <!-- Particle appear from top or left; move in accute angle direction randomly selected for each particle but fixed throught the animation -->
+    <!-- <script src="exp4.js"></script> -->
+
+    <!-- Wavy effect to particle motion in exp3 -->
+    <!-- <script src="exp5.js"></script> -->
+    
+    <!--  -->
+    <!-- <script src="exp6.js"></script> -->
+    
+    <!--  -->
+    <!-- <script src="exp7.js"></script> -->
+    
+    <!--  -->
+    <!-- <script src="exp8.js"></script> -->
+
+    <!--  -->
+    <script src="exp9.js"></script>
 </body>
 </html>
