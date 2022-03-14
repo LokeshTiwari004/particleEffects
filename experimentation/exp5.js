@@ -1,4 +1,5 @@
 const myImage = new Image;
+myImage.src = 'hacker.jpg';
 
 // const dimension =  Math.floor(visualViewport.height / 3);
 const width = x_factor * dimension;
@@ -12,12 +13,13 @@ const ctx = canvas.getContext('2d');
 
 
 myImage.addEventListener('load', function (){
+    ctx.clearRect(0, 0, width, height)
     ctx.fillStyle = 'white'
     ctx.fillRect(0, 0, width, height)
     const scannedImage = ctx.getImageData(0, 0, width, height);
     ctx.clearRect(0, 0, width, height)
     
-    const numOfParticles = 1000;
+    const numOfParticles = 2000;
     let particleArray = [];
 
     let mappedImage = [];
@@ -52,11 +54,11 @@ myImage.addEventListener('load', function (){
             this.baseVelocity = .5;
             this.baseVelocityAmplitude = 2.5;
             this.velocity = Math.random() * this.baseVelocityAmplitude + this.baseVelocity;
-            this.size = Math.random() * 0.5 + 0.5;
+            this.size = Math.random() * 1 + 0.5;
             this.underlyingPixel = mappedImage[Math.floor(this.y)][Math.floor(this.x)];
+            this.angle = (Math.PI/2) * 1; // FIXED angle for each particle
             this.movement = this.velocity;
-            this.angle = (Math.PI / 2) * 1 // FIXED angle for each particle
-
+            
             this.wavyAngle = 0;
             this.wavyAngleIncrement = 0.1;
             this.waveAmplitude = .4;
@@ -82,19 +84,18 @@ myImage.addEventListener('load', function (){
 
             if (this.x >= width) {
                 this.x = 0;
-                this.y = Math.random() * height
+                // this.y = Math.random() * height
             } else if (this.x < 0) {
                 this.x = width - 1;
-                this.y = Math.random() * height
+                // this.y = Math.random() * height
             }
 
             this.underlyingPixel = mappedImage[Math.floor(this.y)][Math.floor(this.x)];
-            this.speed =  (1 - this.underlyingPixel.brightness) * this.maxSpeed;
 
         }
 
         draw() {
-            ctx.fillStyle = this.underlyingPixel.color;
+            ctx.fillStyle = 'rgb(' + Math.floor(Math.random() * 50 + 20) + ',' + Math.floor(Math.random() * 70 + 130) + ','  + Math.floor(Math.random() * 100 + 100) + ')';
             
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
@@ -119,7 +120,7 @@ myImage.addEventListener('load', function (){
         for (let i = 0; i < numOfParticles; i++) {
 
             particleArray[i].update();
-            ctx.globalAlpha = (particleArray[i].underlyingPixel.brightness) * 0.8;
+            ctx.globalAlpha = (particleArray[i].underlyingPixel.brightness) * .8;
             particleArray[i].draw();
 
         }
